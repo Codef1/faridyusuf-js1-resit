@@ -3,7 +3,7 @@ const setup = document.querySelector(".setup");
 const punchline = document.querySelector(".punchline");
 
 const getRandomJoke = function () {
-  fetch("https://official-joke-api.appspot.com/random_joke")
+  fetch("https://v2.jokeapi.dev/joke/Any?type=twopart")
     .then(
       (response) => response.json(),
       (err) => {
@@ -11,10 +11,11 @@ const getRandomJoke = function () {
       }
     )
     .then((data) => {
+      console.log(data);
       document.title = data.setup;
-      title.innerHTML = data.type + " Joke";
+      title.innerHTML = data.category + " Joke";
       setup.innerHTML = data.setup;
-      punchline.innerHTML = data.punchline;
+      punchline.innerHTML = data.delivery;
     });
 };
 getRandomJoke();

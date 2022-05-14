@@ -7,15 +7,15 @@ const getRandomJoke = function () {
     .then(
       (response) => response.json(),
       (err) => {
-        title.innerHTML = "There is a problem, please try again.";
+        title.textContent = "There is a problem, please try again.";
       }
     )
     .then((data) => {
       console.log(data);
       document.title = data.setup;
-      title.innerHTML = data.category + " Joke";
-      setup.innerHTML = data.setup;
-      punchline.innerHTML = data.delivery;
+      title.textContent = data.category + " Joke";
+      setup.textContent = data.setup;
+      punchline.textContent = data.delivery;
     });
 };
 getRandomJoke();
